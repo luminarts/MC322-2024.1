@@ -9,6 +9,7 @@ public class Jogador {
     private String cpf;
     private String foto;
     private String email;
+    private double dinheiro;
     
     public String getNome() {
         return this.nome;
@@ -40,6 +41,18 @@ public class Jogador {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public double getDinheiro() {
+        return this.dinheiro;
+    }
+
+    public void setDinheiro(double dinheiro) {
+        this.dinheiro = dinheiro;
+    }
+
+    public Jogador(double dinheiro_inicial){
+        this.dinheiro = dinheiro_inicial;
     }
 
     /**
