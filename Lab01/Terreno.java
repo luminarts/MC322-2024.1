@@ -37,10 +37,11 @@ public class Terreno extends Propriedade {
     }
 
     public int calcularAluguel() {
+        int aluguel;
         if (this.hotel){
-            int aluguel = (int) this.getAluguel() * 100;
+            aluguel = (int) this.getAluguel() * 100;
         } else {
-            int aluguel = (int) this.getAluguel() * this.numeroCasas;
+            aluguel = (int) this.getAluguel() * this.numeroCasas;
         }
         return aluguel;
     }
