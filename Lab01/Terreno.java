@@ -42,26 +42,27 @@ public class Terreno extends Propriedade {
         } else {
             int aluguel = (int) this.getAluguel() * this.numeroCasas;
         }
-        
+        return aluguel;
     }
 
     public boolean comprarCasa() {
-        this.numeroCasas++;
-
         
-
+        this.numeroCasas++;
+        
+        // Jogador consegue comprar casa? (SaldoJogador - PrecoCasa) : retornar erro
+        return true;
     }
 
     public boolean comprarHotel() {
         if (numeroCasas == 4) {
             this.hotel = true;
-            
+
             return true;
         } else {
             System.out.println("Ação inválida: Não é possível comprar Hotel sem possuir 4 casas");
             return false;
         }
-
+        // Jogador consegue comprar hotel? (SaldoJogador - PrecoHotel) : retornar erro
     }
 
 }

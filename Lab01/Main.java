@@ -4,7 +4,7 @@ public class Main {
      */
     public static void main(String[] args){
         
-        double valor_inicial = 100;
+        double valor_inicial = 2458;
 
         Jogador jogador1 = new Jogador(valor_inicial);
         Jogador jogador2 = new Jogador(valor_inicial);
@@ -21,11 +21,23 @@ public class Main {
         Terreno terreno = new Terreno();
 
 
-        if (!validacao.validarCpf(jogador.getCpf())){
+        if (!validacao.validarCpf(jogador1.getCpf())){
+            System.out.println("CPF Inválido.");
+        }
+        if (!validacao.validarCpf(jogador2.getCpf())){
+            System.out.println("CPF Inválido.");
+        }
+        if (!validacao.validarCpf(jogador3.getCpf())){
             System.out.println("CPF Inválido.");
         }
 
-        if (!validacao.validarEmail(jogador.getEmail())){
+        if (!validacao.validarEmail(jogador1.getEmail())){
+            System.out.println("Email Inválido.");
+        }
+        if (!validacao.validarEmail(jogador2.getEmail())){
+            System.out.println("Email Inválido.");
+        }
+        if (!validacao.validarEmail(jogador3.getEmail())){
             System.out.println("Email Inválido.");
         }
         
@@ -44,7 +56,7 @@ public class Main {
         propriedade2.setProprietario(jogador2.getNome());
         propriedade3.setProprietario(jogador3.getNome()); 
 
-        
+
         
         System.out.println(peca.getCor());
         System.out.println(carta_sorte.getDescricao());
