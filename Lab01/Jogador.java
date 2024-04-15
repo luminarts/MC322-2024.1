@@ -10,6 +10,8 @@ public class Jogador {
     private String foto;
     private String email;
     private double dinheiro;
+    private int id;
+    private static int contadorJogador = 1;
     
     public String getNome() {
         return this.nome;
@@ -51,8 +53,18 @@ public class Jogador {
         this.dinheiro = dinheiro;
     }
 
-    public Jogador(double dinheiro_inicial){
-        this.dinheiro = dinheiro_inicial;
+    int getId(){
+        return this.id;
+    }
+
+    void setId(int id) {
+        this.id = id;
+
+    }
+
+    public Jogador(double dinheiroInicial){
+        this.dinheiro = dinheiroInicial;
+        this.id = contadorJogador++;
     }
 
     /**
