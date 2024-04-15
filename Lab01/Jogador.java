@@ -52,11 +52,11 @@ public class Jogador {
         this.dinheiro = dinheiro;
     }
 
-    int getId(){
+    public int getId(){
         return this.id;
     }
 
-    void setId(int id) {
+    public void setId(int id) {
         this.id = id;
 
     }

@@ -4,19 +4,19 @@ public class Tabuleiro {
     private ArrayList<Integer> jogadores = new ArrayList<>();
     private ArrayList<Integer> propriedades = new ArrayList<>();
 
-    boolean addJogador(int jogador){
+    public boolean addJogador(int jogador){
         return jogadores.add(jogador);
     }
 
-    boolean removeJogador(Integer jogador){
+    public boolean removeJogador(Integer jogador){
         return jogadores.remove(jogador);
     }
     
-    boolean addPropriedade(int propriedade){
+    public boolean addPropriedade(int propriedade){
         return propriedades.add(propriedade);
     }
 
-    boolean removePropriedade(Integer propriedade){
+    public boolean removePropriedade(Integer propriedade){
         return propriedades.remove(propriedade);
     }
 

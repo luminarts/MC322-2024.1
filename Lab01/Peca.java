@@ -6,19 +6,19 @@ public class Peca {
     private String cor;
     private int posicao;
 
-    String getCor() {
+    public String getCor() {
         return this.cor;
     }
 
-    void setCor(String cor) {
+    public void setCor(String cor) {
         this.cor = cor;
     }
 
-    int getPosicao() {
+    public int getPosicao() {
         return this.posicao;
     }
 
-    void setPosicao(String posicao) {
+    public void setPosicao(String posicao) {
         this.cor = posicao;
     }
 

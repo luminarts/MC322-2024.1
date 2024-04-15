@@ -11,68 +11,68 @@ public class CartaSorte {
     private int tempo;
     private String restricao;
 
-    int getId(){
+    public int getId(){
         return this.id;
     }
 
-    void setId(int id) {
+    public void setId(int id) {
         this.id = id;
 
     }
 
-    String getDescricao(){
+    public String getDescricao(){
         return this.descricao;
     }
 
-    void setDescricao(String descricao) {
+    public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
-    int getMovimento() {
+    public int getMovimento() {
         return this.movimento;
     }
 
-    void setMovimento(int movimento) {
+    public void setMovimento(int movimento) {
         this.movimento = movimento;
     }
 
-    int getEfeito() {
+    public int getEfeito() {
         return this.efeito;
     }
 
-    void setEfeito(int efeito) {
+    public void setEfeito(int efeito) {
         this.efeito = efeito;
     }
 
-    float getValor() {
+    public float getValor() {
         return this.valor;
     }
 
-    void setValor(float valor) {
+    public void setValor(float valor) {
         this.valor = valor;
     }
 
-    String getAcao(){
+    public String getAcao(){
         return this.acao;
     }
 
-    void setAcao(String acao) {
+    public void setAcao(String acao) {
         this.acao = acao;
     }
 
-    int getTempo() {
+    public int getTempo() {
         return this.tempo;
     }
 
-    void setTempo(int tempo) {
+    public void setTempo(int tempo) {
         this.tempo = tempo;
     }
 
-    String getRestricao(){
+    public String getRestricao(){
         return this.restricao;
     }
 
-    void setRestricao(String restricao) {
+    public void setRestricao(String restricao) {
         this.restricao = restricao;
     }
 
