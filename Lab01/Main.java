@@ -6,60 +6,63 @@ public class Main {
         
         double valor_inicial = 2458;
 
-        Jogador jogador1 = new Jogador(valor_inicial);
-        Jogador jogador2 = new Jogador(valor_inicial);
-        Jogador jogador3 = new Jogador(valor_inicial);
-        CartaSorte carta_sorte = new CartaSorte();
-        Peca peca = new Peca();
+        Jogador jogador1 = new Jogador(valor_inicial, new Peca("Amarelo", 0));
+        Jogador jogador2 = new Jogador(valor_inicial, new Peca("Vermelho", 0));
+        Jogador jogador3 = new Jogador(valor_inicial, new Peca("Azul", 0));
+        // CartaSorte carta_sorte = new CartaSorte();
+        // Peca peca = new Peca();
         Validacao validacao = new Validacao();
-        Estacao estacao = new Estacao();
-        Propriedade propriedade1 = new Propriedade();
-        Propriedade propriedade2 = new Propriedade();
-        Propriedade propriedade3 = new Propriedade();
-        ServicoPublico servico_publico = new ServicoPublico();
+        Estacao estacao1 = new Estacao();
+        // Propriedade propriedade = new Propriedade();
+        Terreno terreno1 = new Terreno();
+        ServicoPublico servico_publico1 = new ServicoPublico();
         Tabuleiro tabuleiro = new Tabuleiro();
-        Terreno terreno = new Terreno();
 
 
         if (!validacao.validarCpf(jogador1.getCpf())){
             System.out.println("CPF Inválido.");
-        }
-        if (!validacao.validarCpf(jogador2.getCpf())){
+        } else if (!validacao.validarCpf(jogador2.getCpf())){
             System.out.println("CPF Inválido.");
-        }
-        if (!validacao.validarCpf(jogador3.getCpf())){
+        } else if (!validacao.validarCpf(jogador3.getCpf())){
             System.out.println("CPF Inválido.");
-        }
-
-        if (!validacao.validarEmail(jogador1.getEmail())){
+        } else if (!validacao.validarEmail(jogador1.getEmail())){
             System.out.println("Email Inválido.");
-        }
-        if (!validacao.validarEmail(jogador2.getEmail())){
+        } else if (!validacao.validarEmail(jogador2.getEmail())){
             System.out.println("Email Inválido.");
-        }
-        if (!validacao.validarEmail(jogador3.getEmail())){
+        } else if (!validacao.validarEmail(jogador3.getEmail())){
             System.out.println("Email Inválido.");
-        }
-        
-        tabuleiro.addJogador(jogador1.getId());
+        } else {
+            tabuleiro.addJogador(jogador1.getId());
         tabuleiro.addJogador(jogador2.getId());
         tabuleiro.addJogador(jogador3.getId());
-        tabuleiro.addPropriedade(propriedade1.getId());
-        tabuleiro.addPropriedade(propriedade2.getId());
-        tabuleiro.addPropriedade(propriedade3.getId());
+        tabuleiro.addPropriedade(terreno1.getId());
+        tabuleiro.addPropriedade(estacao1.getId());
+        tabuleiro.addPropriedade(servico_publico1.getId());
 
         jogador1.setNome("Joaum");
         jogador2.setNome("Jodois");
         jogador3.setNome("Jotres");
 
-        propriedade1.setProprietario(jogador1.getNome());
-        propriedade2.setProprietario(jogador2.getNome());
-        propriedade3.setProprietario(jogador3.getNome()); 
+        terreno1.setDono(jogador1);
+        estacao1.setDono(jogador2);
+        servico_publico1.setDono(jogador3); 
 
+            if(terreno1.getDono() == jogador1){
+                if(jogador1.getDinheiro() >= terreno1.getValorCasa()){
+                    terreno1.comprarCasa();
+                    jogador1.setDinheiro(jogador1.getDinheiro() - terreno1.getValorCasa());
+                }
+            }
+        
+        }
 
         
-        System.out.println(peca.getCor());
-        System.out.println(carta_sorte.getDescricao());
+        
+        
+        
+        
+        
+        
     }
 
 }    

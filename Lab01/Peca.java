@@ -22,4 +22,9 @@ public class Peca {
         this.cor = posicao;
     }
 
+    public Peca(String c, int p){
+        this.cor = c;
+        this.posicao = p;
+    }
+
 }

@@ -1,17 +1,9 @@
-public class Propriedade {
-    private int id;
+public class Propriedade extends Carta {
     private String nome;
-    private String proprietario;
     private int preco;
     private float aluguel;
 
-    int getId() {
-        return this.id;
-    }
-
-    void setId(int id) {
-        this.id = id;
-    }
+    
 
     String getNome() {
         return this.nome;
@@ -19,14 +11,6 @@ public class Propriedade {
 
     void setNome(String nome) {
         this.nome = nome;
-    }
-
-    String getProprietario() {
-        return this.proprietario;
-    }
-
-    void setProprietario(String proprietario) {
-        this.proprietario = proprietario;
     }
 
     int getPreco() {

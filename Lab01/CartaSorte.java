@@ -1,32 +1,13 @@
 /**
  * Classe CartaSorte é responsável por armazenar e modificar informações das cartas 
  */
-public class CartaSorte {
-    private int id;
-    private String descricao;
+public class CartaSorte extends Carta{
     private int movimento;
     private int efeito;
     private float valor;
     private String acao;
     private int tempo;
     private String restricao;
-
-    public int getId(){
-        return this.id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-
-    }
-
-    public String getDescricao(){
-        return this.descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 
     public int getMovimento() {
         return this.movimento;
