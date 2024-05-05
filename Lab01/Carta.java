@@ -1,4 +1,5 @@
 public class Carta {
+    private String nome;
     private int id;
     private String descricao;
     private Jogador dono;
@@ -16,6 +17,14 @@ public class Carta {
 
     public void setDescricao(String descricao){
         this.descricao = descricao;
+    }
+
+    public String getNome(){
+        return this.nome;
+    }
+
+    public void setNome(String nome){
+        this.nome = nome;
     }
 
     public Jogador getDono(){

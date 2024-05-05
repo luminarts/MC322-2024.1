@@ -21,29 +21,29 @@ public class Validacao{
      * @return retorna true ou false conforme a validação do cpf
      */
     public boolean validarCpf(String cpf) {
-        int aux = 0;
         String cpf_aux = cpf.replaceAll("[^0-9]", "");
         String cpf_reduzido = cpf_aux.substring(0, cpf_aux.length() - 2);
-
+        System.out.println("cpf reduzido");
+        System.out.println(cpf_reduzido);
+        
         if (cpf_aux.length() != 11) {
+
             return false;
         }
-
-        for (int i = 1; i < cpf_aux.length(); i++) {
-            if (cpf_aux.charAt(i) != cpf_aux.charAt(i-1)) {
-                aux = 1;
-            }
-        }
-
-        if (aux == 1) {
-            return false;
-        }
-
-        if (cpf_aux.charAt(9) != calcularDV(cpf_reduzido, 10)) {
+        
+        if (Character.getNumericValue(cpf_aux.charAt(9)) != (int)calcularDV(cpf_reduzido, 10)) {
+            System.out.println("cpf_aux charAt(9):");
+            System.out.println((int)cpf_aux.charAt(9) - 1);
+            System.out.println("calcularDV");
+            System.out.println(calcularDV(cpf_reduzido, 10) - 1);
             return false;
         } else {
             cpf_reduzido = cpf_aux.substring(0, cpf_aux.length() - 1);
-            if (cpf_aux.charAt(10) != calcularDV(cpf_reduzido, 11)) {
+            if (Character.getNumericValue(cpf_aux.charAt(10))!= calcularDV(cpf_reduzido, 11)) {
+                System.out.println("cpf_aux charAt(10):");
+                System.out.println(cpf_aux.charAt(10) - 1);
+                System.out.println("calcularDV");
+                System.out.println(calcularDV(cpf_reduzido, 10) - 1);
                 return false;
             } else {
                 return true;

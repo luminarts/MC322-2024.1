@@ -1,17 +1,10 @@
 public class Propriedade extends Carta {
-    private String nome;
     private int preco;
     private float aluguel;
 
     
 
-    String getNome() {
-        return this.nome;
-    }
-
-    void setNome(String nome) {
-        this.nome = nome;
-    }
+    
 
     int getPreco() {
         return this.preco;

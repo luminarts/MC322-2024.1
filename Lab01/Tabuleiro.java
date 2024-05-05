@@ -1,30 +1,30 @@
 import java.util.ArrayList;
 
 public class Tabuleiro {    
-    private ArrayList<Integer> jogadores = new ArrayList<>();
-    private ArrayList<Integer> propriedades = new ArrayList<>();
+    private ArrayList<Jogador> jogadores = new ArrayList<>();
+    private ArrayList<Propriedade> propriedades = new ArrayList<>();
 
-    public boolean addJogador(int jogador){
+    public boolean addJogador(Jogador jogador){
         return jogadores.add(jogador);
     }
 
-    public boolean removeJogador(Integer jogador){
+    public boolean removeJogador(Jogador jogador){
         return jogadores.remove(jogador);
     }
     
-    public boolean addPropriedade(int propriedade){
+    public boolean addPropriedade(Propriedade propriedade){
         return propriedades.add(propriedade);
     }
 
-    public boolean removePropriedade(Integer propriedade){
+    public boolean removePropriedade(Propriedade propriedade){
         return propriedades.remove(propriedade);
     }
 
-    public ArrayList<Integer> getJogadores() {
+    public ArrayList<Jogador> getJogadores() {
         return jogadores;
     }
 
-    public ArrayList<Integer> getPropriedades() {
+    public ArrayList<Propriedade> getPropriedades() {
         return propriedades;
     }
 

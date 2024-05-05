@@ -54,6 +54,14 @@ public class Jogador {
         this.dinheiro = dinheiro;
     }
 
+    public Peca getPeca() {
+        return this.peca;
+    }
+
+    public void setPeca(Peca peca) {
+        this.peca = peca;
+    }
+
     public int getId(){
         return this.id;
     }
@@ -75,20 +83,32 @@ public class Jogador {
         this.cartas.remove(carta);
     }
 
-    public Jogador(double dinheiroInicial, Peca p){
-        this.dinheiro = dinheiroInicial;
+    public Jogador(String n, String c, String e, double d, Peca p){
+        this.nome = n;
+        this.cpf = c;
+        this.email = e;
+        this.dinheiro = d;
         this.id = contadorJogador++;
         this.peca = p;
-        cartas = new ArrayList<Carta>();
+        this.cartas = new ArrayList<Carta>();
     }
 
     // @Override
     public String toString(){
         String out = "";
-        out += "Nome: " + this.getNome();
-        out += "Dinheiro: " + this.getNome();
-        out += "Cartas: " + this.getCartas();
-        out += "Cor: " + this.peca.getCor();
+        out += "Nome: " + this.getNome() + "\n";
+        out += "Dinheiro: " + this.getDinheiro() + "\n";
+        out += "Cartas: ";
+        for (int i = 0; i < this.getCartas().size(); i++){
+            if (i != this.getCartas().size() - 1){
+                out += this.getCartas().get(i).getNome() + ", ";
+            } else {
+                out += this.getCartas().get(i).getNome();
+            }
+        }
+        out += "\n";
+        out += "Cor da Peça: " + this.peca.getCor() + "\n";
+        out += "Posiçao: " + this.peca.getPosicao() + "\n";
 
         return out;
     }
