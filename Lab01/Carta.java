@@ -1,3 +1,7 @@
+
+/**
+     * Classe que implementa as variáveis-base de qualquer carta do jogo
+     */
 public class Carta {
     private String nome;
     private int id;

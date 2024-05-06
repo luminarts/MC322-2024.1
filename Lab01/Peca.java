@@ -1,5 +1,5 @@
 /**
- * Classe Peça responsável por armazenar e modificar as informações de cor e posição de cada peça.
+ * Classe Peça responsável por armazenar e modificar as informações de cor, posição e dono de cada peça.
  */
 public class Peca {
 

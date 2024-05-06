@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Main {
     /**
-     * Método main que instancia as classes criadas e um objeto de cada classe, além de printá-los no console.
+     * Método main que instancia as classes criadas e implementa a interface do jogo, além de receber os inputs do usuário.
      */
     public static void main(String[] args){
         
@@ -13,7 +13,7 @@ public class Main {
         ArrayList<Jogador> jogadores = new ArrayList<>();
         // CartaSorte carta_sorte = new CartaSorte();
         ArrayList<Peca> pecas = new ArrayList<>();
-        // Validacao validacao = new Validacao();
+        Validacao validacao = new Validacao();
         Estacao estacao1 = new Estacao();
         // Propriedade propriedade = new Propriedade();
         Terreno terreno1 = new Terreno();
@@ -21,7 +21,7 @@ public class Main {
         Tabuleiro tabuleiro = new Tabuleiro();
         Scanner scanner = new Scanner(System.in);
         Random rnd = new Random();
-        
+        boolean andou = false;
 
         for (int i = 0; i < 4; i++){
             if (i == 0){
@@ -42,6 +42,10 @@ public class Main {
             int counter = 1;
             System.out.println("Digite um comando: \n 'Criar jogador' - Cria um jogador \n 'Ver jogadores' - Ver os jogadores adicionados \n 'Jogar' - Iniciar o jogo \n 'q' - Sair do jogo");
             String user_input = scanner.nextLine();
+
+            /**
+             * Cria um jogador e o coloca na arraylist de jogadores existentes
+             */
             if (user_input.equals("Criar jogador")){
                 // Fazer lista de jogadores para poder criar n jogadores, sendo n até 4 (limitado pelas regras do Banco imobiliario)
                 String nome = null;
@@ -53,13 +57,12 @@ public class Main {
                     if (i == 0){
                         System.out.println("Digite seu nome: ");
                         nome = scanner.nextLine();
-                    } else if (i == 1 || i == 2){
-                    // } else if (i == 1) {
-                    //     System.out.println("Digite seu cpf (com pontos e traço): ");
-                    //     cpf = scanner.nextLine();
-                    // } else if (i == 2){
-                    //     System.out.println("Digite seu e-mail: ");
-                    //     email = scanner.nextLine();
+                    } else if (i == 1) {
+                        System.out.println("Digite seu cpf (com pontos e traço): ");
+                        cpf = scanner.nextLine();
+                    } else if (i == 2){
+                        System.out.println("Digite seu e-mail: ");
+                        email = scanner.nextLine();
                     } else {
                         for (int j = 0; j < pecas.size(); j++){
                             if (pecas.get(j).getDono() == null) {
@@ -72,21 +75,26 @@ public class Main {
                     }
                 } 
                 
-                // for (int i = 0; i < jogadores.size(); i++){
-                //     if (validacao.validarCpf(jogadores.get(i).getCpf()) == false){
-                //         System.out.println("CPF Inválido.");
-                //         jogadores.remove(jogadores.get(i));
-                //         i--;
-                //     } else if (validacao.validarEmail(jogadores.get(i).getEmail()) == false){
-                //         System.out.println("Email Inválido.");
-                //         jogadores.remove(jogadores.get(i));
-                //         i--;
-                //     }
-                // }   
+                /**
+                 * Validação de CPF e e-mail dos jogadores adicionados
+                 */
+                for (int i = 0; i < jogadores.size(); i++){
+                    if (validacao.validarCpf(jogadores.get(i).getCpf()) == false){
+                        System.out.println("CPF Inválido.");
+                        jogadores.remove(jogadores.get(i));
+                        i--;
+                    } else if (validacao.validarEmail(jogadores.get(i).getEmail()) == false){
+                        System.out.println("Email Inválido.");
+                        jogadores.remove(jogadores.get(i));
+                        i--;
+                    }
+                }   
             } else if (user_input.equals("Jogar")) {
 
                 
-
+                /**
+                 * Adicionar todos os jogadores e propriedades ao jogo e iniciar o jogo (Eventualmente o mapa será gerado automaticamente com valores arbitriários para compra de propriedades, casas e aluguel)
+                 */
                 for(int i = 0; i < jogadores.size(); i++) {
                     tabuleiro.addJogador(jogadores.get(i));
                 }
@@ -110,11 +118,15 @@ public class Main {
                         counter = 0;
                     }
 
+
+                    /**
+                     * Ambiente de jogo, com comandos de verificar os dados dos jogadores, realizar um movimento, adquirir uma propriedade, sair do jogo ou chorar caso a situação esteja complicada
+                     */
                     System.out.println(String.format("------VEZ DO(A) JOGADOR(A) %s -------", jogadores.get(counter).getNome()));
                     System.out.println("Digite um comando. \n Chorar - Buá buá \n Analisar - Ver situaçao dos jogadores \n Andar - Jogar dado para andar \n Adquirir prop - Adquire uma propriedade aleatória \n 'q' - Fechar jogo");
                     String game_command = scanner.nextLine();
 
-                    if (game_command.equals("Chorar")){
+                    if (game_command.equals("Chorar")) {
                         int aux = rnd.nextInt(3);
                         if (aux == 0){
                             System.out.println(" \n Inserir conhecimentos de POO e horas no dia para completar o jogo. \n");
@@ -137,8 +149,9 @@ public class Main {
                         
                         } else if (tabuleiro.getPropriedades().get(index_rnd_prop).getDono() != jogadores.get(counter)) {
                             tabuleiro.getPropriedades().get(index_rnd_prop).getDono().setDinheiro(tabuleiro.getPropriedades().get(index_rnd_prop).getDono().getDinheiro() + tabuleiro.getPropriedades().get(index_rnd_prop).calcularAluguel());
-                            System.out.println("\n Você tentou adquirir uma propriedade que não é sua! Pague o Aluguel! (OBS: Sei que a regra não existe, mas é só pra testar as funcionalidades do código) \n");
+                            System.out.println("\n Você tentou adquirir uma propriedade que nao é sua! Pague o Aluguel! (OBS: Sei que a regra não existe no jogo, mas é para conseguir utilizar a funcionalidade de calcular o aluguel) \n");
                         }
+                        andou = false;
                         counter++;
                     } else if (game_command.equals("Analisar")) {
                         for (int i = 0; i < jogadores.size(); i++){
@@ -146,16 +159,21 @@ public class Main {
                         } 
                         
                     } else if (game_command.equals("Andar")) {
-                        int dice = rnd.nextInt(6);
-                        jogadores.get(counter).getPeca().setPosicao(jogadores.get(counter).getPeca().getPosicao() + dice);
-                        if (jogadores.get(counter).getPeca().getPosicao() > 20) {
-                            jogadores.get(counter).getPeca().setPosicao(jogadores.get(counter).getPeca().getPosicao() - 20);
+                        if (andou == false) {
+                            int dice = rnd.nextInt(6);
+                            jogadores.get(counter).getPeca().setPosicao(jogadores.get(counter).getPeca().getPosicao() + dice);
+                            if (jogadores.get(counter).getPeca().getPosicao() > 20) {
+                                jogadores.get(counter).getPeca().setPosicao(jogadores.get(counter).getPeca().getPosicao() - 20);
+                            }
+                            System.out.println(String.format("O jogador %s andou %d passos \n", jogadores.get(counter).getNome(), dice));
+                            andou = true;
+                        } else {
+                            System.out.println("Você já andou! \n");
                         }
-                        System.out.println(String.format("O jogador %s andou %d passos \n", jogadores.get(counter).getNome(), dice));
+                        
                         
                     } else if (game_command.equals("q")){
-                        scanner.close();
-                        return;
+                        break;
                     } 
 
                     
@@ -173,10 +191,6 @@ public class Main {
                 
         }
         
-
-        /**
-         * Validação de cpf e email
-         */
 
         //  if(tabuleiro.getPropriedades().get(index_rnd_prop).getDono() == jogadores.get(0)){
         //     if(jogadores.get(0).getDinheiro() >= terreno1.getValorCasa()){

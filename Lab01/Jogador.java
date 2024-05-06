@@ -83,6 +83,7 @@ public class Jogador {
         this.cartas.remove(carta);
     }
 
+    
     public Jogador(String n, String c, String e, double d, Peca p){
         this.nome = n;
         this.cpf = c;

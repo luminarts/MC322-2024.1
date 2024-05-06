@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+/**
+     * Classe que implementa o tabuleiro do jogo, contendo jogadores e propriedades
+     */
 public class Tabuleiro {    
     private ArrayList<Jogador> jogadores = new ArrayList<>();
     private ArrayList<Propriedade> propriedades = new ArrayList<>();

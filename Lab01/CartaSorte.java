@@ -1,5 +1,5 @@
 /**
- * Classe CartaSorte é responsável por armazenar e modificar informações das cartas 
+ * Classe que armazena as informações de cada carta de sorte ou revés do jogo
  */
 public class CartaSorte extends Carta{
     private int movimento;

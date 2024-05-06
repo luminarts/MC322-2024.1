@@ -1,3 +1,7 @@
+
+/**
+ * Classe que armazena o número de casas e seus valores, se há ou não hotel e seu valor; e calcula o aluguel referente à propriedade do tipo Terreno, além de métodos para comprar casa e hotel
+ */
 public class Terreno extends Propriedade {
     private int numeroCasas;
     private int valorCasa;

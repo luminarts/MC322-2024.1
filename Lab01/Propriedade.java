@@ -1,10 +1,10 @@
+/**
+ * Classe que armazena as variáveis-base de uma carta do tipo propriedade
+ */
+
 public class Propriedade extends Carta {
     private int preco;
     private float aluguel;
-
-    
-
-    
 
     int getPreco() {
         return this.preco;
